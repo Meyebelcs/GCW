@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <!-- Agrega el enlace a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('Assets/background.png');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .imagen-superpuesta {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding-top: 78%;
+            max-width: 130%; /* Cambia el valor según sea necesario */
+            z-index: 1; /* Asegura que la imagen superpuesta esté encima de la imagen de fondo */
+            animation: floatAnimation 3s ease-in-out infinite alternate; /* Agrega una animación llamada "floatAnimation" */
+        }
+
+        .imagen-texto {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding-top: 78%;
+            max-width: 130%; /* Cambia el valor según sea necesario */
+            z-index: 1; /* Asegura que la imagen superpuesta esté encima de la imagen de fondo */
+            /* animation: floatAnimation 3s ease-in-out infinite alternate; Agrega una animación llamada "floatAnimation" */
+        }
+
+        .boton-imagen {
+            width: 50%;
+            height: auto; /* Mantener la proporción original */
+            cursor: pointer;
+            transition: transform 0.2s; /* Agrega una transición suave al botón */
+        }
+
+        .boton-imagen:hover {
+            /* Cambia la imagen al pasar el mouse */
+            content: url('Assets/btn_play2.png'); /* Cambia la ruta a tu imagen de hover */
+            transform: scale(1.1); /* Escala ligeramente el botón al pasar el mouse */
+        }
+
+        .boton-container {
+            position: absolute;
+            top: 50%; /* Ajusta la posición vertical según sea necesario */
+            left: 50%;
+            margin-top: 30%;
+            transform: translateX(-25%);
+            z-index: 3; /* Asegura que el contenedor del botón esté encima de todo */
+        }
+        
+        @keyframes floatAnimation {
+            0% {
+                transform: translate(-50%, -50%) translateY(0);
+            }
+            100% {
+                transform: translate(-50%, -50%) translateY(-20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
+                <img src="Assets/reds.png" alt="Imagen Superpuesta" class="imagen-superpuesta">
+                <img src="Assets/title.png" alt="Imagen de Texto" class="imagen-texto">
+                <a href="tu_pagina_destino.html"> <!-- Cambia la URL a tu página destino -->
+                    <div class="boton-container">
+                        <img src="Assets/btn_play1.png" alt="Botón" class="boton-imagen">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Agrega el enlace a Bootstrap JS (si es necesario) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
