@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.volume-control {
+   
+    width: 40px; /* Ancho de la barra vertical, incluyendo el botón */
+    height: 200px; /* Alto de la barra vertical */
+    background-color: #ccc;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column; /* Alinea el botón encima de la barra */
+    align-items: center; /* Centra el contenido verticalmente */
+}
+.bar {
+    width: 100%;
+    height: 100%;
+    background-color: #e0e0e0;
+    position: relative;
+    border-radius: 5px; /* Redondear las esquinas de la barrita */
+    box-shadow: 
+        inset 0px 1px 2px rgba(0, 0, 0, 0.1);/* Sombra interna en la parte superior */
+        /*0px 0px 10px rgba(0, 0, 0, 0.5);  Sombra exterior para el efecto tridimensional */
+    border: 5px solid #ded7c1; /* Borde de color piel */
+}
+
+.slider {
+    width: 100%;
+    height: 0%; /* Alto del control deslizante */
+    background-color: #8a2be2; /* Color lila */
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    border-radius: 5px; /* Redondear las esquinas del control deslizante */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); /* Agregar sombra para el efecto tridimensional */
+}
+
+.control-button {
+    width: 70px;
+    height: 20px; /* Alto y ancho del botón de control */
+    background-color: #ff0000; /* Color rojo */
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%); /* Alinea el botón verticalmente en el centro */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); /* Agregar sombra para el efecto tridimensional */
+}
+    </style>
+</head>
+
+<body>
+    <div class="volume-control">
+        <div class="bar">
+            <div class="slider"></div>
+        </div>
+        <div class="control-button"></div>
+    </div>
+
+
+
+
+
+    <script src="script.js"></script>
+    <script>
+const slider = document.querySelector(".slider");
+const bar = document.querySelector(".bar");
+const controlButton = document.querySelector(".control-button");
+
+let isDragging = false;
+
+// Establecer la posición inicial del botón de control al 100%
+controlButton.style.top = "100%";
+
+controlButton.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    controlButton.style.transition = "none";
+    let offsetY = e.clientY - controlButton.getBoundingClientRect().top;
+
+    document.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+
+        let newPosition = e.clientY - bar.getBoundingClientRect().top - offsetY;
+        let minPosition = 0;
+        let maxPosition = bar.clientHeight - controlButton.clientHeight;
+
+        if (newPosition < minPosition) {
+            newPosition = minPosition;
+        } else if (newPosition > maxPosition) {
+            newPosition = maxPosition;
+        }
+
+        // Calcular la posición relativa en lugar de absoluta
+        let positionPercentage = (newPosition / maxPosition) * 100;
+        controlButton.style.top = `${positionPercentage}%`;
+        updateVolume(newPosition, maxPosition);
+    });
+
+    document.addEventListener("mouseup", () => {
+        isDragging = false;
+        controlButton.style.transition = "top 0.2s ease-in-out"; // Solo transición en la propiedad 'top'
+    });
+});
+
+function updateVolume(position, maxPosition) {
+    // Calcula el valor de volumen según la posición del botón de control
+    let volume = 1 - position / maxPosition;
+
+    // Actualiza la apariencia de la barra de volumen
+    bar.style.background = `linear-gradient(to top, #8a2be2 ${volume * 100}%, #e0e0e0 ${volume * 100}%)`;
+
+    // Aquí puedes realizar acciones con el valor de volumen, como ajustar el volumen del reproductor de audio
+    // Simplemente usa la variable 'volume' según tus necesidades.
+}
+
+    </script>
+</body>
+
+</html>
