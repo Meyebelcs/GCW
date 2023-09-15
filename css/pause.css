@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../Assets/background.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.image-up,
+.image-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-top: 78%;
+    max-width: 130%; /* Cambia el valor según sea necesario */
+    z-index: 1; /* Asegura que la imagen superpuesta esté encima de la imagen de fondo */
+    /* animation: floatAnimation 3s ease-in-out infinite alternate; Agrega una animación llamada "floatAnimation" */
+}
+
+ .pause{
+    transform: translate(-50%, -50%) scale(0.8); 
+    animation: scaleAnimation 2s infinite alternate; /* Aplica la animación infinitamente */
+}  
+
+.redflag{
+    width: 118%;
+    padding-top: 60%; 
+}
+
+.flags{
+    animation: floatAnimation 3s ease-in-out infinite alternate; /* Agrega una animación llamada "floatAnimation" */
+}
+
+/* ===================BOTONES================= */
+
+.button-container {
+    position: absolute;
+    top: 50%; /* Ajusta la posición vertical según sea necesario */
+    left: 50%;
+    z-index: 3; /* Asegura que el contenedor del botón esté encima de todo */
+}
+.button {
+    width: 50%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+/* ---------Boton-Resume-------- */ 
+.resume-container {
+    margin-top: 30%;
+    transform: translateX(-25%);
+}
+
+.button.resume:hover {
+    /* Cambia la imagen al pasar el mouse */
+    content: url('../Assets/btn_resume2.png'); /* Cambia la ruta a tu imagen de hover */
+    transform: scale(1.1); /* Escala ligeramente el botón al pasar el mouse */
+}
+
+/* --------Boton-facebook-------- */      
+.facebook-container {
+    margin-top: 38%;
+    transform: translateX(-26%);
+}
+
+.button.facebook:hover {
+    /* Cambia la imagen al pasar el mouse */
+    content: url('../Assets/btn_facebook2.png'); /* Cambia la ruta a tu imagen de hover */
+    transform: scale(1.1); /* Escala ligeramente el botón al pasar el mouse */
+}
+
+/* --------Boton-settings-------- */      
+  .settings-container {
+    margin-top: 46%;
+    transform: translateX(-26%);
+}
+
+.button.settings:hover {
+    /* Cambia la imagen al pasar el mouse */
+    content: url('../Assets/btn_settings2.png'); /* Cambia la ruta a tu imagen de hover */
+    transform: scale(1.1); /* Escala ligeramente el botón al pasar el mouse */
+}
+
+
+
+
+@keyframes floatAnimation {
+    0% {
+        transform: translate(-50%, -50%) translateY(0);
+    }
+    100% {
+        transform: translate(-50%, -50%) translateY(-20px);
+    }
+}
+
+@keyframes scaleAnimation {
+    0% {
+        transform: translate(-50%, -50%) scale(0.98); /* Escala al 80% al inicio de la animación */
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1); /* Escala al 100% al final de la animación */
+    }
+}
