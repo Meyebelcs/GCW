@@ -1,0 +1,30 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../Assets/background.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.icons {
+    width: 100%;
+    height: auto;
+}
+.icons-smalls {
+    margin-left: 40px;
+}
+
+
+.image-play {
+    max-height: 85%;
+}
+
+
+.image-bar{
+    margin-top: 200px;
+    width: 100%;
+}
+

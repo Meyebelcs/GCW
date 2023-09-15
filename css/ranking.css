@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../Assets/background.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.central-flag {
+width: 100%;
+height: 900px;
+}
+
+
+.right-icon {
+width: 100%;
+}
+
+.icon-time {
+    margin-top: 20rem;
+    transform: scale(1.5);
+}
+
+.playername {
+    width: 100%;
+    margin-top: 20rem;
+    transform: scale(2.2);
+}
