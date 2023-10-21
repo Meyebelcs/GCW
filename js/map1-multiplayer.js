@@ -552,9 +552,9 @@ function loadCaballeroModel() {
     caballeroLoader.load(
         '../Models/Animation/CaballeroOscuro/T-Pose.fbx',
         (model) => {
-            model.position.set(-10, 0, 35);
+            model.position.set(10, 0, 35);
             model.scale.set(0.25, 0.25, 0.25);
-            model.rotation.set(0, Math.PI / 2, 0);
+            model.rotation.set(0, Math.PI / -2, 0);
 
             caballero.add(model);
 
