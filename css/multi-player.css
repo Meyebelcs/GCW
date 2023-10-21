@@ -4,13 +4,10 @@ body {
     background-image: url('../Assets/background.png');
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
 }
 
-.image-play {
-    max-height: 85%;
-}
 
 .icons {
     width: 100%;
@@ -28,4 +25,26 @@ body {
 .image-bar2{
     margin-top: 30px;
     width: 52%;
+}
+
+/* Estilos para el canvas */
+canvas {
+    position: absolute;
+    top: 2%;
+    width: 60%; /* Cambia el valor según tus necesidades */
+    height: 80%; /* Cambia el valor según tus necesidades */
+    /*max-height: 100%;*/
+    left: 37%;
+    z-index: 1; /* Ajusta este valor a un número menor que el z-index de "image-play" para que esté por debajo */
+}
+
+.image-play-container {
+    position: relative;
+}
+
+.image-play {
+    /*max-height: 100%;*/
+    height: 85%;
+    /* Añade un z-index superior al de "canvas" para que esté por encima */
+    z-index: 2;
 }

@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
         60,
         columnWidth / columnHeight
     );
-    camera.position.set(0, 0, 10);
+    camera.position.set(0, 0, 50);
 
     // Crea un renderizador WebGL
     const renderer = new THREE.WebGLRenderer();
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
     scene.add(directionalLight);
 
     // PLANO
-    const planeGeometry = new THREE.PlaneGeometry(50, 50);
+    const planeGeometry = new THREE.PlaneGeometry(500, 500);
     const planeMaterial = new THREE.MeshStandardMaterial({
         color: "slategrey",
     });
@@ -206,7 +206,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     loaderGLTF.load("../Models/Modelos/Medieval_Wall.glb", function (gltf) {
         const obj = gltf.scene;
-        obj.position.set(4, 0, 20);
+        obj.position.set(4, 0, -30);
         obj.scale.set(3, 3, 3);
         scene.add(obj);
     });
@@ -336,35 +336,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Crear una variable para el mezclador (mixer)
     let mixer;
 
-    // Cargar el modelo FBX Animado
-    fbxLoader.load(
-        '../Models/Animation/akai_e_espiritu.fbx', // Cargar el modelo FBX en pose T
-        (fbx2) => {
-            fbx2.scale.set(0.03, 0.03, 0.03);
-            fbx2.position.set(-5, 0, -10);
-            fbx2.castShadow = true; // Habilitar sombras para el objeto FBX
-
-            // Cargar la animación de Mixamo sin piel
-            const animLoader = new FBXLoader();
-            animLoader.load('../Models/Animation/Rifle Run.fbx', (anim) => {
-                // Crear un mezclador para el modelo FBX y asignar la animación
-                mixer = new THREE.AnimationMixer(fbx2);
-                const clip = anim.animations[0];
-                const action = mixer.clipAction(clip);
-                action.play();
-            });
-
-            scene.add(fbx2);
-        },
-        (xhr) => {
-            console.log((xhr.loaded / xhr.total) * 100 + '% loaded akai FBX');
-        },
-        (error) => {
-            console.log(error);
-        }
-    );
-
-
     // Agregar objetos a la escena
     scene.add(plane);
 
@@ -372,10 +343,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const cameraControl = new OrbitControls(camera, renderer.domElement);
 
     // Restringir la rotación de la cámara a solo mirar hacia el frente
-    cameraControl.minPolarAngle = Math.PI / 2; // Ángulo mínimo (mirar hacia arriba)
-    cameraControl.maxPolarAngle = Math.PI / 2; // Ángulo máximo (mirar hacia abajo)
-    cameraControl.minAzimuthAngle = 0; // Ángulo mínimo de azimut (rotación)
-    cameraControl.maxAzimuthAngle = 0; // Ángulo máximo de azimut (rotación)
+    //cameraControl.minPolarAngle = Math.PI / 2; // Ángulo mínimo (mirar hacia arriba)
+    //cameraControl.maxPolarAngle = Math.PI / 2; // Ángulo máximo (mirar hacia abajo)
+    //cameraControl.minAzimuthAngle = 0; // Ángulo mínimo de azimut (rotación)
+    //cameraControl.maxAzimuthAngle = 0; // Ángulo máximo de azimut (rotación)
 
     // Manejo de eventos de teclado para mover la cámara hacia arriba y abajo
     document.addEventListener('keydown', function (event) {
@@ -387,15 +358,292 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+
+     //MELANY
+     const mixers = [];
+
+     function loadAnimatedFBXModel(path, position, scale, animationPath, rotation) {
+       fbxLoader.load(
+         path,
+         (model) => {
+           model.position.set(...position);
+           model.scale.set(...scale);
+           model.rotation.set(...rotation);
+           model.castShadow = true;
+ 
+           const animLoader = new FBXLoader();
+           animLoader.load(animationPath, (anim) => {
+             const mixer = new THREE.AnimationMixer(model);
+             const clip = anim.animations[0];
+             const action = mixer.clipAction(clip);
+             action.play();
+             mixers.push(mixer);
+           });
+ 
+           scene.add(model);
+         },
+         (xhr) => {
+           console.log((xhr.loaded / xhr.total) * 100 + `% loaded ${path}`);
+         },
+         (error) => {
+           console.log(error);
+         }
+       );
+     }
+ 
+ 
+
+     //-----------------CABALLERO OSCURO-----------------
+     loadAnimatedFBXModel(
+       '/Models/Animation/CaballeroOscuro/T-Pose.fbx',
+       [11, 0, 12],
+       [0.25, 0.25, 0.25],
+       '/Models/Animation/CaballeroOscuro/dead.fbx',
+       [0, Math.PI, 0] // Especificar rotación
+     );
+ 
+     loadAnimatedFBXModel(
+       '/Models/Animation/CaballeroOscuro/T-Pose.fbx',
+       [16, 0, 12],
+       [0.25, 0.25, 0.25],
+       '/Models/Animation/CaballeroOscuro/dead2.fbx',
+       [0, Math.PI, 0] // Especificar rotación
+     );
+ 
+     loadAnimatedFBXModel(
+       '/Models/Animation/CaballeroOscuro/T-Pose.fbx',
+       [20, 0, 12],
+       [0.25, 0.25, 0.25],
+       '/Models/Animation/CaballeroOscuro/atack.fbx',
+       [0, Math.PI, 0] // Especificar rotación
+     );
+ 
+     loadAnimatedFBXModel(
+       '/Models/Animation/CaballeroOscuro/T-Pose.fbx',
+       [24, 0, 12],
+       [0.25, 0.25, 0.25],
+       '/Models/Animation/CaballeroOscuro/walk.fbx',
+       [0, Math.PI, 0] // Especificar rotación
+     );
+ 
+     //-----------------SAMURAI-----------------
+     loadAnimatedFBXModel(
+       '/Models/Animation/Samurai/T-Pose.fbx',
+       [7, 0, -20],
+       [0.01, 0.01, 0.01],
+       '/Models/Animation/Samurai/Victory.fbx',
+       [0, Math.PI, 0] // Especificar rotación
+     );
+     loadAnimatedFBXModel(
+       '/Models/Animation/Samurai/T-Pose.fbx',
+       [11, 0, -20],
+       [0.01, 0.01, 0.01],
+       '/Models/Animation/Samurai/run.fbx',
+       [0, Math.PI, 0] // Especificar rotación
+     );
+ 
+     loadAnimatedFBXModel(
+       '/Models/Animation/Samurai/T-Pose.fbx',
+       [16, 0, -20],
+       [0.01, 0.01, 0.01],
+       '/Models/Animation/Samurai/death.fbx',
+       [0, Math.PI, 0] // Especificar rotación
+     );
+ 
+     loadAnimatedFBXModel(
+       '/Models/Animation/Samurai/T-Pose.fbx',
+       [20, 0, -20],
+       [0.01, 0.01, 0.01],
+       '/Models/Animation/Samurai/stand.fbx',
+       [0, Math.PI, 0] // Especificar rotación
+     );
+ 
+     loadAnimatedFBXModel(
+       '/Models/Animation/Samurai/T-Pose.fbx',
+       [24, 0, -20],
+       [0.01, 0.01, 0.01],
+       '/Models/Animation/Samurai/Taking Item.fbx',
+       [0, Math.PI, 0] // Especificar rotación
+     );
+ 
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+
+    // Crear un objeto jugador samurai
+    const samurai = new THREE.Object3D();
+    scene.add(samurai);
+
+    const samuraiLoader = new FBXLoader();
+    let samuraiMixer; // Variable para el mezclador del samurai
+
+    function loadSamuraiModel() {
+        samuraiLoader.load(
+            '../Models/Animation/Samurai/T-Pose.fbx',
+            (model) => {
+                model.position.set(0, 0, 35);
+                model.scale.set(0.01, 0.01, 0.01);
+                model.rotation.set(0, Math.PI/2, 0); // Especificar rotación
+
+                samurai.add(model); // Agrega el modelo del samurai al objeto "samurai"
+
+                // Cargar las animaciones del samurai y configurar el mezclador
+                samuraiMixer = new THREE.AnimationMixer(model);
+                loadSamuraiAnimation('stand.fbx', () => {
+                    // Después de cargar todas las animaciones, inicia la animación por defecto
+                    const action = samuraiMixer.clipAction('stand');
+                    action.play();
+                });
+            },
+            (xhr) => {
+                console.log((xhr.loaded / xhr.total) * 100 + `% loaded Samurai Model`);
+            },
+            (error) => {
+                console.log(error);
+            }
+        );
+    }
+
+    function loadSamuraiAnimation(animationPath, callback) {
+        samuraiLoader.load(
+            `../Models/Animation/Samurai/${animationPath}`,
+            (anim) => {
+                const clip = anim.animations[0];
+                if (samuraiMixer) {
+                    samuraiMixer.clipAction(clip).play();
+                }
+                if (callback) {
+                    callback();
+                }
+            },
+            (xhr) => {
+                console.log((xhr.loaded / xhr.total) * 100 + `% loaded ${animationPath}`);
+            },
+            (error) => {
+                console.log(error);
+            }
+        );
+    }
+
+    loadSamuraiModel();
+
+    // Controles de movimiento para el jugador
+    const speed = 0.5;
+
+ 
+
+
+    //Controles jugador uno
+    const geometry = new THREE.BoxGeometry( 1, 1, 1 ); 
+    const material = new THREE.MeshBasicMaterial( {color: 0x00ff00} ); 
+    const cube = new THREE.Mesh( geometry, material ); 
+    cube.position.set(5,0,5);
+    scene.add( cube );
+    
+    
+    //Controles jugador dos
+    const geometry2 = new THREE.BoxGeometry( 1, 1, 1 ); 
+    const material2 = new THREE.MeshBasicMaterial( {color: 0x0000ff} ); 
+    const cube2 = new THREE.Mesh( geometry2, material2 ); 
+    cube2.position.set(-5,0,5);
+    scene.add( cube2 );
+    
+
+    
+    // Variable de control de movimiento para el jugador samurái
+    let isSamuraiMovingForward = false;
+    let isSamuraiMovingBackward = false;
+    let isSamuraiMovingLeft = false;
+    let isSamuraiMovingRight = false;
+    
+    // Manejo de eventos de teclado 
+    document.onkeydown = function (e) {
+        if (e.keyCode == 37) {
+            cube.position.x -= 1;
+            
+        }
+  
+        if (e.keyCode == 39) {
+            cube.position.x += 1;
+            
+        }
+  
+        if (e.keyCode == 38) {
+            cube.position.z -= 1;
+        }
+  
+        if (e.keyCode == 40) {
+            cube.position.z += 1;
+        }
+
+
+        // WASD
+        if (e.keyCode === 87) { // Tecla W
+            // Mover hacia adelante
+            // Tu lógica para mover hacia adelante aquí
+        } 
+        if (e.keyCode === 65) { // Tecla A
+            cube2.position.x -= 1;
+            isSamuraiMovingLeft = true;
+            isSamuraiMovingRight = false;
+            
+        } 
+        if (e.keyCode === 83) { // Tecla S
+            // Mover hacia atrás
+            // Tu lógica para mover hacia atrás aquí
+        } 
+        if (e.keyCode === 68) { // Tecla D
+            cube2.position.x += 1;
+            isSamuraiMovingRight = true;
+            isSamuraiMovingLeft = false;
+            
+        }
+
+        
+    };
+
+
+    function animatePlayerSamurai() {
+        // Tu lógica para mover el jugador aquí
+        // Por ejemplo:
+        if (isSamuraiMovingForward) {
+            samurai.position.z -= speed;
+        }
+        if (isSamuraiMovingBackward) {
+            samurai.position.z += speed;
+        }
+        if (isSamuraiMovingLeft) {
+            samurai.position.x -= speed;
+            isSamuraiMovingLeft=false;
+        }
+        if (isSamuraiMovingRight) {
+            samurai.position.x += speed;
+            isSamuraiMovingRight = false;
+        }
+        
+
+        // Actualizar el mezclador del samurai
+        if (samuraiMixer) {
+            samuraiMixer.update(0.01);
+        }
+    }
+    
+    
+
     // Función para animar la escena
     function animate() {
+        // Llama a la función para controlar el movimiento del jugador samurái
+        animatePlayerSamurai();
+
         renderer.render(scene, camera);
         requestAnimationFrame(animate);
 
-        if(mixer){
+        mixers.forEach((mixer) => {
             mixer.update(0.01);
-        }
+          });
+
+
     }
+
 
     animate();
 });
