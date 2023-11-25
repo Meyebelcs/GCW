@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <!-- Agrega el enlace a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Agrega el CSS -->
+    <link rel="stylesheet" type="text/css" href="css/pause.css">
+    <link rel="stylesheet" type="text/css" href="css/single-player.css">
+    <link rel="stylesheet" type="text/css" href="css/settings.css">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('../Assets/background.png');
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .pause-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 800;
+        }
+
+        .settings-containersett {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 900;
+        }
+
+        .pausePage {
+            z-index: 600;
+        }
+
+        .settingsPage {
+            z-index: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Página 1: Pause -->
+    <div id="pausePage" class="pause-container">
+        <!-- Contenido de la pantalla de pausa -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-12">
+                    <!-- Contenido de la página de pausa -->
+                    <img src="Assets/reds.png" alt="Imagen Superpuesta" class="image-up flags">
+                    <img src="Assets/redFlag.png" alt="Imagen de Texto" class="image-title redflag">
+                    <img src="Assets/pause.png" alt="Imagen de Texto" class="image-title pause">
+
+
+                    <div class="button-container resume-container" id="resumepause">
+                        <img src="Assets/btn_resume1.png" alt="Botón" class="button resume">
+                    </div>
+
+                    <a href="tu_pagina_destino.html"> <!-- FACEBOOK -->
+                        <div class="button-container facebook-container">
+                            <img src="Assets/btn_facebook1.png" alt="Botón" class="button facebook">
+                        </div>
+                    </a>
+
+                    <div class="button-container settings-container" id="settingsPause">
+                        <img src="Assets/btn_settings1.png" alt="Botón" class="button settings">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Página 2: Single Player -->
+    <div id="singlePlayerPage">
+        <div class="container">
+            <div class="row">
+                <!-- Contenido de la página de un solo jugador -->
+                <div class="col-lg-3 col-md-3 col-sm-3 p-0">
+                    <div class="container">
+                        <div class="row">
+                            <img src="Assets/game_life.png" alt="Imagen Superpuesta" class="icons">
+                        </div>
+
+                        <div class="row d-flex">
+                            <img src="Assets/game_item.png" alt="Imagen Superpuesta" class="icons-smalls">
+                            <img src="Assets/game_item2.png" alt="Imagen Superpuesta" class="icons-smalls">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6  p-0 d-flex justify-content-center">
+                    <div class="container">
+                        <img src="Assets/game_frame.png" alt="Imagen Superpuesta" class="image-play">
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-3 p-0">
+                    <div class="container">
+                        <img src="Assets/game_bar.png" alt="Imagen Superpuesta" class="image-bar">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Página 3: Settings -->
+    <div id="settingsPage" class="settings-containersett">
+        <div class="container-centered">
+            <div class="container">
+                <div class="row">
+                    <!-- Contenido de la página de settings -->
+                    <div class="col-lg-12 col-md-12 col-12">
+                        <img src="Assets/reds.png" alt="Imagen Superpuesta" class="image-up flags-settings">
+                        <img src="Assets/redFlag.png" alt="Imagen de Texto" class="image-title redflag-settings">
+                        <img src="Assets/settings.png" alt="Imagen de Texto" class="image-title pause-settings">
+
+                        <div class="button-container resume-container-settings" id="resumeSettings">
+                            <img src="Assets/btn_resume1.png" alt="Botón" class="button resume-settings">
+                        </div>
+
+                        <!-- BARRA VOLUMEN -->
+                        <div class="button-container volume-container-settings">
+                            <img src="Assets/btn_volume1.png" alt="Botón" class="button volume" id="volume-button">
+                        </div>
+
+                        <!-- BARRA MUSICA -->
+                        <div class="button-container music-container-settings">
+                            <img src="Assets/btn_music1.png" alt="Botón" class="button music" id="music-button">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script type="module" src="js/map1-singlePlayer.js"></script>
+
+    <script>
+
+        //===========BUTTON-VOLUME=========================
+
+        // Función para inicializar un botón de control
+        function initializeControlButton(buttonId, muteImage, unmuteImage, unmuteImage2) {
+            const button = document.getElementById(buttonId);
+            let isMuted = false;
+
+            function toggleMute() {
+                isMuted = !isMuted;
+                button.src = isMuted ? muteImage : unmuteImage;
+            }
+
+            button.addEventListener('click', toggleMute);
+
+            button.addEventListener('mouseover', () => {
+                button.style.transform = 'scale(1.1)';
+                if (!isMuted) {
+                    button.src = unmuteImage2;
+                }
+            });
+
+            button.addEventListener('mouseout', () => {
+                if (!isMuted) {
+                    button.src = unmuteImage;
+                    button.style.transform = 'scale(1)';
+                } else {
+                    button.style.transform = 'scale(1)';
+                }
+
+            });
+        }
+
+        // Inicializar el botón de volumen
+        initializeControlButton('volume-button', 'Assets/btn_NoVolume.png', 'Assets/btn_volume1.png', 'Assets/btn_volume2.png');
+
+        // Inicializar el botón de música
+        initializeControlButton('music-button', 'Assets/btn_NoMusic.png', 'Assets/btn_music1.png', 'Assets/btn_music2.png');
+        // Manejar la pulsación de la tecla "P"
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'p' || event.key === 'P') {
+                if (document.getElementById('settingsPage').style.display != 'block') {
+                    togglePausePage();
+                }
+
+                
+            }
+        });
+        // Función para mostrar u ocultar la página de pausa al presionar "P"
+        function togglePausePage() {
+            var pausePage = document.getElementById('pausePage');
+            if (pausePage.style.display === '' || pausePage.style.display === 'none') {
+                pausePage.style.display = 'block';
+            } else {
+                pausePage.style.display = 'none';
+
+            }
+        }
+        document.getElementById('resumepause').addEventListener('click', function () {
+            togglePausePage(); // Ocultar la página de pausa
+        });
+
+        // Mostrar la página de settings al hacer clic en "Settings" en la página de pausa
+        document.getElementById('settingsPause').addEventListener('click', function () {
+            document.getElementById('settingsPage').style.display = 'block';
+
+            togglePausePage(); // Ocultar la página de pausa
+        });
+
+        // Ocultar la página de settings al hacer clic en "Resume" en la página de settings
+        document.getElementById('resumeSettings').addEventListener('click', function () {
+            document.getElementById('settingsPage').style.display = 'none';
+        });
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,15 +1,7 @@
-body {
-    margin: 0;
-    padding: 0;
-    background-image: url('../Assets/background.png');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    overflow: hidden;
-}
+/* ===================IMÁGENES SETTINGS ================= */
 
-.image-up,
-.image-title {
+.image-up-settings,
+.image-title-settings {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -22,36 +14,36 @@ body {
     /* animation: floatAnimation 3s ease-in-out infinite alternate; Agrega una animación llamada "floatAnimation" */
 }
 
-.pause {
+.pause-settings {
     transform: translate(-50%, -50%) scale(0.8);
     animation: scaleAnimation 2s infinite alternate;
     /* Aplica la animación infinitamente */
 }
 
-.redflag {
+.redflag-settings {
     width: 118%;
     padding-top: 55%;
 }
 
-.flags {
+.flags-settings {
     width: 300%;
     padding-top: 62%;
     animation: floatAnimation 3s ease-in-out infinite alternate;
     /* Agrega una animación llamada "floatAnimation" */
 }
 
-/* ===================BOTONES================= */
+/* ===================BOTONES SETTINGS ================= */
 
-.button-container {
+.button-container-settings {
     position: absolute;
-    top: 50%;
+    top: 80%;
     /* Ajusta la posición vertical según sea necesario */
-    left: 50%;
+    left: 80%;
     z-index: 3;
     /* Asegura que el contenedor del botón esté encima de todo */
 }
 
-.button {
+.button-settings {
     width: 70%;
     height: auto;
     cursor: pointer;
@@ -59,12 +51,12 @@ body {
 }
 
 /* ---------Boton-Resume-------- */
-.resume-container {
+.resume-container-settings {
     margin-top: 40%;
     transform: translateX(-35%);
 }
 
-.button.resume:hover {
+.button.resume-settings:hover {
     /* Cambia la imagen al pasar el mouse */
     content: url('../Assets/btn_resume2.png');
     /* Cambia la ruta a tu imagen de hover */
@@ -72,27 +64,26 @@ body {
     /* Escala ligeramente el botón al pasar el mouse */
 }
 /* ---------Boton-volume-------- */
-.volume-container {
-    margin-top: 4%;
+.volume-container-settings {
+    margin-top: 20%;
     transform: translateX(-484%);
 }
 
 /* ---------Boton-music-------- */
-.music-container {
-    margin-top: 4%;
+.music-container-settings {
+    margin-top: 20%;
     transform: translateX(410%);
 }
 
-
-/* ===================SLIDER-left================= */
+/* ===================SLIDER-left SETTINGS ================= */
 /* Estilo para la barra de volumen */
 
-.volume-control-left {
+.volume-control-left-settings {
     position: fixed;
-    top: 20%; /* Ajusta la posición vertical según sea necesario */
-    left: 14%; /* Ajusta la posición horizontal según sea necesario */
+    top: 15%; /* 20 Ajusta la posición vertical según sea necesario */
+    left: 21%; /* 14 Ajusta la posición horizontal según sea necesario */
     width: 3%; /* Cambia el ancho de la barra vertical, ajusta según sea necesario */
-    height: 50%; /* Utiliza vh para el alto de la barra, ajusta según sea necesario */
+    height: 45%; /* 50 Utiliza vh para el alto de la barra, ajusta según sea necesario */
     background-color: #ffffff00;
     display: flex;
     flex-direction: column;
@@ -101,8 +92,7 @@ body {
     z-index: 4; /* Ajusta el índice z según sea necesario */
 }
 
-
-.bar-left {
+.bar-left-settings {
     width: 100%;
     height: 100%;
     background-color: #e0e0e0;
@@ -114,7 +104,7 @@ body {
     border: 5px solid #ded7c1; /* Borde de color piel */
 }
 
-.slider-left {
+.slider-left-settings {
     width: 100%;
     height: 0%; /* Alto del control deslizante */
     background-color: #8a2be2; /* Color lila */
@@ -125,7 +115,7 @@ body {
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); /* Agregar sombra para el efecto tridimensional */
 }
 
-.control-button-left {
+.control-button-left-settings {
     width: 70px;
     height: 20px; /* Alto y ancho del botón de control */
     background-color: #3cd919;
@@ -136,19 +126,20 @@ body {
     transform: translateY(-50%); /* Alinea el botón verticalmente en el centro */
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); /* Agregar sombra para el efecto tridimensional */
 }
-.control-button-left:hover {
+
+.control-button-left-settings:hover {
     box-shadow: 0px 0px 5px rgb(0, 0, 0); /* Agregar sombra para el efecto tridimensional */
 }
 
-/* ===================SLIDER-right================= */
+/* ===================SLIDER-right SETTINGS ================= */
 /* Estilo para la barra de musica */
 
-.volume-control-right {
+.volume-control-right-settings {
     position: fixed;
-    top: 20%; /* Ajusta la posición vertical según sea necesario */
-    left: 83%; /* Ajusta la posición horizontal según sea necesario */
+    top: 15%; /* 20 Ajusta la posición vertical según sea necesario */
+    left: 76%; /* 83 Ajusta la posición horizontal según sea necesario */
     width: 3%; /* Cambia el ancho de la barra vertical, ajusta según sea necesario */
-    height: 50%; /* Utiliza vh para el alto de la barra, ajusta según sea necesario */
+    height: 45%; /* 50 Utiliza vh para el alto de la barra, ajusta según sea necesario */
     background-color: #ffffff00;
     display: flex;
     flex-direction: column;
@@ -157,8 +148,7 @@ body {
     z-index: 4; /* Ajusta el índice z según sea necesario */
 }
 
-
-.bar-right {
+.bar-right-settings {
     width: 100%;
     height: 100%;
     background-color: #e0e0e0;
@@ -170,7 +160,7 @@ body {
     border: 5px solid #ded7c1; /* Borde de color piel */
 }
 
-.slider-right {
+.slider-right-settings {
     width: 100%;
     height: 0%; /* Alto del control deslizante */
     background-color: #8a2be2; /* Color lila */
@@ -181,7 +171,7 @@ body {
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); /* Agregar sombra para el efecto tridimensional */
 }
 
-.control-button-right {
+.control-button-right-settings {
     width: 70px;
     height: 20px; /* Alto y ancho del botón de control */
     background-color: #3cd919;
@@ -192,11 +182,10 @@ body {
     transform: translateY(-50%); /* Alinea el botón verticalmente en el centro */
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); /* Agregar sombra para el efecto tridimensional */
 }
-.control-button-right:hover {
+
+.control-button-right-settings:hover {
     box-shadow: 0px 0px 5px rgb(0, 0, 0); /* Agregar sombra para el efecto tridimensional */
 }
-
-
 
 @keyframes floatAnimation {
     0% {
