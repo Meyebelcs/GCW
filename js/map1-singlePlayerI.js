@@ -235,7 +235,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let position;
         if (firstTime) {
-            position = [14, 16, 20];
+            position = [-10, 233, 20];
             firstTime = false;
         } else {
             position = samurai.position; //posicion actual de samurai
@@ -761,7 +761,7 @@ document.addEventListener("DOMContentLoaded", function () {
         (pergamino) => {
             pergaminoModel = pergamino;
             pergaminoModel.scale.set(0.2, 0.2, 0.2);
-            pergaminoModel.position.set(-10, 233, 20);
+            pergaminoModel.position.set(14, 16, 20);
             pergaminoModel.rotation.set(0, 90, 0);
             pergaminoModel.castShadow = true; // Habilitar sombras para el objeto FBX
             scene.add(pergaminoModel)

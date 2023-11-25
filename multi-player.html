@@ -11,8 +11,31 @@
     <link rel="stylesheet" type="text/css" href="css/multi-player.css">
     <style>
 
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
 
+        #player2, #player1 {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #4CAF50; /* Green color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #player2:hover {
+            background-color: #45a049; /* Darker green color on hover */
+        }
     </style>
+
 </head>
 
 <body>
@@ -21,17 +44,15 @@
             <div class="col-lg-2 col-md-2 col-sm-2 p-0 justify-content-start">
                 <div class="container">
                     <div class="row">
-                        <img src="Assets/game_life.png" alt="Imagen Superpuesta" class="icons">
+                       
                     </div>
     
                     <div class="row d-flex">
-                        <img src="Assets/game_item.png" alt="Imagen Superpuesta" class="icons-smalls">
-                        <img src="Assets/game_item2.png" alt="Imagen Superpuesta" class="icons-smalls">
-    
+                       
                     </div>
     
-                    <div class="row">
-                        <img src="Assets/game_bar.png" alt="Imagen Superpuesta" class="image-bar">
+                    <div class="row p-5">
+                        <button id="player1">Player 1</button>
                     </div>
     
                 </div>
@@ -48,22 +69,22 @@
             <div class="col-lg-2 col-md-2 col-sm-2 p-0 justify-content-start">
                 <div class="container">
                     <div class="row">
-                        <img src="Assets/game_life.png" alt="Imagen Superpuesta" class="icons">
+                       
                     </div>
 
                     <div class="row d-flex">
-                        <img src="Assets/game_item.png" alt="Imagen Superpuesta" class="icons-smalls">
-                        <img src="Assets/game_item3.png" alt="Imagen Superpuesta" class="icons-smalls">
-
+                       
                     </div>
 
-                    <div class="row">
-                        <img src="Assets/game_bar2.png" alt="Imagen Superpuesta" class="image-bar2">
+                    <div class="row p-5">
+                        
+                        <button id="player2">Player 2</button>
                     </div>
                 </div>
 
             </div>
-
+            
+            
 
         </div>
     </div>
@@ -72,7 +93,9 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <!-- Script de canvas -->
-        <script type="module" src="js/map1-multiplayer.js"></script>
+    <!--<script type="module" src="js/map1-multiplayer.js"></script>-->
+    <script type="module" src="js/map1-multiplayer-firebase.js"></script>
+
 </body>
 
 </html>

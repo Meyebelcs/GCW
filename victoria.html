@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <!-- Agrega el enlace a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+       <!-- Agrega el CSS -->
+    <link rel="stylesheet" type="text/css" href="css/principal.css">
+    <link rel="stylesheet" type="text/css" href="css/settings.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
+                <img src="Assets/reds.png" alt="Imagen Superpuesta" class="image-up flags">
+                <img src="Assets/Victoria.png" alt="Imagen de Texto" class="image-title">
+                
+     
+                <a href="principal.html"> <!-- SETTINGS -->
+                    <div class="button-container settings-container">
+                        <img src="Assets/btn_resume1.png" alt="Botón" class="button resume">
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Agrega esto al final del cuerpo de tu página -->
+    <!--<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>-->
+
+    <script>
+        function irAVictoria() {
+            // Obtener los valores que deseas pasar desde la URL actual
+            const parametro1 = obtenerParametroDeURL('parametro1');
+            const parametro2 = obtenerParametroDeURL('tiempo');
+
+            // Realizar la llamada AJAX a victoria.html
+            $.ajax({
+                type: 'POST', // Puedes cambiar a 'GET' según tus necesidades
+                url: 'https://samuratowerlmad.000webhostapp.com/Registro.php',
+                data: {
+                    nombre: parametro1,
+                    tiempo: parametro2
+                },
+                success: function(response) {
+                    // Manejar la respuesta si es necesario
+                    console.log('Éxito:', response);
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function obtenerParametroDeURL(nombreParametro) {
+            // Obtener el valor de un parámetro específico de la URL actual
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(nombreParametro);
+        }
+    </script>
+
+</body>
+</html>

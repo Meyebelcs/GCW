@@ -114,12 +114,12 @@ document.addEventListener("DOMContentLoaded", function () {
     scene.add(directionalLight);
 
     // Crear una luz puntual (roja) lava
-    // const pointLightred = new THREE.PointLight(0xff0000, 4);
-    //scene.add(pointLightred);
+    const pointLightred = new THREE.PointLight(0xff0000, 4);
+    scene.add(pointLightred);
 
     // Crear una luz puntual (azul) hielo
-    const pointLightblue = new THREE.PointLight(0x0000ff, 4);
-    scene.add(pointLightblue);
+    //const pointLightblue = new THREE.PointLight(0x0000ff, 4);
+    //scene.add(pointLightblue);
 
     // Crear una luz puntual amarilla intensa
     const goldenAuraLight = new THREE.PointLight(0xffd700, 2);
@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
     scene.add(goldenAuraLight);
 
     // Crear una textura para las partículas (un pequeño círculo blanco)
-    const particleTexture = new THREE.TextureLoader().load('../Assets/nieve.png');
+    const particleTexture = new THREE.TextureLoader().load('../Assets/chispas.png');
     // Crear material para las partículas
     const particleMaterial = new THREE.PointsMaterial({
         size: 1, // Tamaño de las partículas
@@ -657,31 +657,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    cargarModeloFBX("../Models/Torre/Hielo/paredIzq.fbx", [2, 2, 2], [0, 0, 0]);
-    cargarModeloFBX("../Models/Torre/Hielo/paredDer.fbx", [2, 2, 2], [0, 0, 0]);
+      cargarModeloFBX("../Models/Torre/Lava/paredIzq.fbx", [2, 2, 2], [0, 0, 0]);
+        cargarModeloFBX("../Models/Torre/Lava/paredDer.fbx", [2, 2, 2], [0, 0, 0]);
 
-    /* ===================ESCENARIO DE HIELO===================== */
-    cargarModeloFBX("../Models/Torre/Hielo/base.fbx", [2, 2, 2], [0, 0, 0]);
-    cargarModeloFBX("../Models/Torre/Hielo/b1.fbx", [2, 2, 2], [0, 0, 0]);
-    cargarModeloFBX("../Models/Torre/Hielo/b2.fbx", [2, 2, 2], [0, 0, 0]);
-    cargarModeloFBX("../Models/Torre/Hielo/b3.fbx", [2, 2, 2], [0, 0, 0]);
-    cargarModeloFBX("../Models/Torre/Hielo/b4.fbx", [2, 2, 2], [0, 0, 0]);
-    cargarModeloFBX("../Models/Torre/Hielo/b3.fbx", [2, 2, 2], [0, 23, 0]);
-    cargarModeloFBX("../Models/Torre/Hielo/b4.fbx", [2, 2, 2], [0, 23, 0]);
-    cargarModeloFBX("../Models/Torre/Hielo/b1.fbx", [2, 2, 2], [0, 58, 0]);
-    cargarModeloFBX("../Models/Torre/Hielo/b2.fbx", [2, 2, 2], [0, 60, 0]);
-    cargarModeloFBX("../Models/Torre/Hielo/b3.fbx", [2, 2, 2], [0, 60, 0]);
-    cargarModeloFBX("../Models/Torre/Hielo/b4.fbx", [2, 2, 2], [0, 60, 0]);
-    cargarModeloFBX("../Models/Torre/Hielo/b2.fbx", [2, 2, 2], [0, 84, 0]);
-    cargarModeloFBX("../Models/Torre/Hielo/b1.fbx", [2, 2, 2], [0, 108, 0]);
-    cargarModeloFBX("../Models/Torre/Hielo/b2.fbx", [2, 2, 2], [0, 110, 0]);
-    cargarModeloFBX("../Models/Torre/Hielo/b3.fbx", [2, 2, 2], [0, 120, 0]);
-    cargarModeloFBX("../Models/Torre/Hielo/b4.fbx", [2, 2, 2], [0, 123, 0]);
-    cargarModeloFBX("../Models/Torre/Hielo/b1.fbx", [2, 2, 2], [0, 160, 0]);
-    cargarModeloFBX("../Models/Torre/Hielo/b4.fbx", [2, 2, 2], [0, 152, 0]);
-    cargarModeloFBX("../Models/Torre/Hielo/b1.fbx", [2, 2, 2], [0, 190, 0]);
-    cargarModeloFBX("../Models/Torre/Hielo/b4.fbx", [2, 2, 2], [0, 182, 0]);
-
+        cargarModeloFBX("../Models/Torre/Lava/base.fbx", [2, 2, 2], [0, 0, 0]);
+        cargarModeloFBX("../Models/Torre/Lava/b1.fbx", [2, 2, 2], [0, 0, 0]);
+        cargarModeloFBX("../Models/Torre/Lava/b2.fbx", [2, 2, 2], [0, 0, 0]);
+        cargarModeloFBX("../Models/Torre/Lava/b3.fbx", [2, 2, 2], [0, 0, 0]);
+        cargarModeloFBX("../Models/Torre/Lava/b4.fbx", [2, 2, 2], [0, 0, 0]);
+        cargarModeloFBX("../Models/Torre/Lava/b3.fbx", [2, 2, 2], [0, 23, 0]);
+        cargarModeloFBX("../Models/Torre/Lava/b4.fbx", [2, 2, 2], [0, 23, 0]);
+        cargarModeloFBX("../Models/Torre/Lava/b1.fbx", [2, 2, 2], [0, 58, 0]);
+        cargarModeloFBX("../Models/Torre/Lava/b2.fbx", [2, 2, 2], [0, 60, 0]);
+        cargarModeloFBX("../Models/Torre/Lava/b3.fbx", [2, 2, 2], [0, 60, 0]);
+        cargarModeloFBX("../Models/Torre/Lava/b4.fbx", [2, 2, 2], [0, 60, 0]);
+        cargarModeloFBX("../Models/Torre/Lava/b2.fbx", [2, 2, 2], [0, 84, 0]);
+        cargarModeloFBX("../Models/Torre/Lava/b1.fbx", [2, 2, 2], [0, 108, 0]);
+        cargarModeloFBX("../Models/Torre/Lava/b2.fbx", [2, 2, 2], [0, 110, 0]);
+        cargarModeloFBX("../Models/Torre/Lava/b3.fbx", [2, 2, 2], [0, 120, 0]);
+        cargarModeloFBX("../Models/Torre/Lava/b4.fbx", [2, 2, 2], [0, 123, 0]);
+        cargarModeloFBX("../Models/Torre/Lava/b1.fbx", [2, 2, 2], [0, 160, 0]);
+        cargarModeloFBX("../Models/Torre/Lava/b4.fbx", [2, 2, 2], [0, 152, 0]);
+        cargarModeloFBX("../Models/Torre/Lava/b1.fbx", [2, 2, 2], [0, 190, 0]);
+        cargarModeloFBX("../Models/Torre/Lava/b4.fbx", [2, 2, 2], [0, 182, 0]); 
 
     // OBJETOS
 
@@ -1065,8 +1063,8 @@ document.addEventListener("DOMContentLoaded", function () {
         particleGeometry.attributes.position.needsUpdate = true;
 
         // Actualizar la posición de la luz para que siga a la cámara
-        //pointLightred.position.copy(camera.position);
-        pointLightblue.position.copy(camera.position);
+        pointLightred.position.copy(camera.position);
+       // pointLightblue.position.copy(camera.position);
 
         if (samurai) {
             goldenAuraLight.position.copy(samurai.position);
@@ -1277,10 +1275,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function GameOver() {
         gameOver.play();
-        window.location.href = 'http://127.0.0.1:5500/derrota.html'; 
+        alert("Haz muerto, yiyi papa");
+        // ANIMACION MORIR
+
     }
 
     function CheckVida() {
+        // TODO RELACIONADO A LA VIDA EN EL CANVAS
     }
 
     function MoreSpeed() {
